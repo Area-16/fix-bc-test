@@ -9,7 +9,8 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 
-* [Nodejs && NPM](https://nodejs.org/en/)
+* [Nodejs && NPM](https://nodejs.org/)
+* [Yarn](https://yarnpkg.com/)
 
 ### Installing
 
@@ -29,7 +30,7 @@ cd pagarme && yarn
 
 ## Running the tests
 
-Realizar os testes:
+Use the test script to run the test:
 ```sh
 yarn test
 ```
