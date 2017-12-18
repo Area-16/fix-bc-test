@@ -1,7 +1,6 @@
 import { expect, should } from 'chai'
 
 import Jwt from '../src/helpers/jwt'
-import { errors, general, success } from '../src/helpers/loggify'
 import { errorChecker } from '../src/helpers/treater'
 
 describe('Teste de utilitarios/helpers', () => {
