@@ -3,7 +3,7 @@ import { json, urlencoded } from 'body-parser'
 import helmet from 'helmet'
 
 import '../db/index'
-import cors from './middleware'
+import cors from './cors'
 import env from './env'
 import { success, general, errors } from '../helpers/loggify'
 import pokemon from '../api/controllerPokemon'

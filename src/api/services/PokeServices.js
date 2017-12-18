@@ -6,6 +6,8 @@ import { findOneTrainer } from './TrainerServices'
 import { createTransaction } from './TransactionServices'
 import { errorChecker } from '../../helpers/treater'
 
+let newError
+
 let findAllPokemons = (limit) => {
   return new Promise ((resolve, reject) => {
     Pokemon.findAll({
@@ -23,7 +25,6 @@ let findAllPokemons = (limit) => {
       })
       .catch((err) => {
         let newError = errorChecker(err)
-        console.log(newError)
         return reject(newError)
       })
   })
@@ -39,14 +40,13 @@ let findOnePokemon = (name) => {
     }
     })
       .then((pokemon) => {
-        console.log(pokemon)
         resolve({
           data: pokemon || {},
           status: 200
         })
       })
       .catch((err) => {
-        let newError = errorChecker(err)
+        newError = errorChecker(err)
         return reject(newError)
       })
   })
@@ -65,7 +65,7 @@ let CreatePokemon = (pokeInfo) => {
         })
       })
       .catch((err) => {
-        let newError = errorChecker(err)
+        newError = errorChecker(err)
         return reject(newError)
       })
   })
@@ -176,25 +176,25 @@ let buyPokemon = (payload) => {
               status: 201
             })
           }).catch((err)=> {
-            let newError = errorChecker(err)
+            newError = errorChecker(err)
             return reject(newError)               
           })
         }).catch((err) => {
-          let newError = errorChecker(err)
+          newError = errorChecker(err)
           return reject(newError) 
         })
       })
       .catch(({ response })=> {
-        console.log(response.data.errors)
+        // console.log(response.data.errors)
         let errorType = response.data.errors
         if (errorType.length) {
           errorType = response.data.errors[0].type
         }
-        let newError = errorChecker(Error(errorType))
+        newError = errorChecker(Error(errorType))
         return reject(newError)
       })
     }).catch((err) => {
-      let newError = errorChecker(err.message)
+      newError = errorChecker(err)
       return reject(newError)
     }) 
   })
