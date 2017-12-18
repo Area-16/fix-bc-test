@@ -1,7 +1,7 @@
 import { expect, should } from 'chai'
 
 import env from './../src/config/env'
-import middleware from './../src/config/middleware'
+import cors from './../src/config/cors'
 
 describe('Teste de utilitarios/helpers', () => {
   
@@ -15,13 +15,13 @@ describe('Teste de utilitarios/helpers', () => {
     })
   })
 
-  describe('Testes Middleware', () => {
-    it('middleware should exist', () => {
-      expect(middleware).to.exist
+  describe('Testes CORS', () => {
+    it('cors should exist', () => {
+      expect(cors).to.exist
     })
 
-    it('Middleware should be a function', () => {
-      expect(middleware).to.be.a('function')
+    it('CORS should be a function', () => {
+      expect(cors).to.be.a('function')
     })
   })
 })
