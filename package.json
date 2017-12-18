@@ -21,18 +21,17 @@
     "url": "https://github.com/dougtq/pagarme/issues"
   },
   "scripts": {
-    "make:dir": "mkdir logs",
     "test": "./node_modules/.bin/mocha tests/**/*.spec.js --reporter=spec --require babel-register --bail",
     "test:live": "yarn test -- --watch",
     "lint": "./node_modules/.bin/eslint src/**/*.js",
     "lint:fix": "npm run lint -- --fix",
     "clean": "./node_modules/.bin/rimraf dist",
     "precommit": "npm run lint",
-    "build": "npm run make:dir && npm run lint && npm run clean && ./node_modules/.bin/babel --out-dir dist src",
+    "build": "npm run lint && npm run clean && ./node_modules/.bin/babel --out-dir dist src",
     "build:watch": "npm run build -- --watch",
-    "dev": "npm run make:dir && ./node_modules/.bin/nodemon --exec ./node_modules/.bin/babel-node ./src/loader",
-    "start": "npm run make:dir && node ./dist/loader",
-    "prod": "npm run make:dir && node_modules/.bin/pm2 start dist/loader.js --name pokemon_api"
+    "dev": "./node_modules/.bin/nodemon --exec ./node_modules/.bin/babel-node ./src/loader",
+    "start": "node ./dist/loader",
+    "prod": "node_modules/.bin/pm2 start dist/loader.js --name pokemon_api"
   },
   "license": "ISC",
   "engines": {
