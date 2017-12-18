@@ -3,7 +3,7 @@ import { join } from 'path'
 import morgan from 'morgan'
 
 const defaultLog = ':method :url :status :res[content-length] - :response-time ms'
-const defaultPath = '../../logs/'
+const defaultPath = '../../'
 
 const sucessLog = createWriteStream(join(__dirname, `${defaultPath}sucess.log`), { flags: 'a' })
 const errorsLog = createWriteStream(join(__dirname, `${defaultPath}errors.log`), { flags: 'a' })
