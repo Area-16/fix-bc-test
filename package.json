@@ -1,0 +1,71 @@
+{
+  "name": "pokemon_api",
+  "version": "1.0.0",
+  "description": "Refactored example of a really bad code",
+  "main": "src/loader.js",
+  "author": "Douglas E. Alves",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dougtq/pagarme.git"
+  },
+  "keywords": [
+    "js",
+    "node",
+    "sqlite3",
+    "sequelize",
+    "integration",
+    "pagar.me",
+    "test"
+  ],
+  "bugs": {
+    "url": "https://github.com/dougtq/pagarme/issues"
+  },
+  "scripts": {
+    "test": "./node_modules/.bin/mocha tests/**/*.spec.js --reporter=spec --require babel-register --bail",
+    "test:live": "yarn test -- --watch",
+    "test:coverage": "nyc yarn test",
+    "lint": "./node_modules/.bin/eslint src/**/*.js",
+    "lint:fix": "npm run lint -- --fix",
+    "clean": "./node_modules/.bin/rimraf dist",
+    "precommit": "npm run lint",
+    "build": "npm run lint && npm run clean && ./node_modules/.bin/babel --out-dir dist src",
+    "build:watch": "npm run build -- --watch",
+    "dev": "./node_modules/.bin/nodemon --exec ./node_modules/.bin/babel-node ./src/loader",
+    "start": "node ./dist/loader",
+    "prod": "node_modules/.bin/pm2 start dist/loader.js --name pokemon_api"
+  },
+  "license": "ISC",
+  "engines": {
+    "node": ">= 6.12.0"
+  },
+  "dependencies": {
+    "axios": "0.17.1",
+    "body-parser": "1.18.2",
+    "env-deploy": "0.2.1",
+    "express": "4.16.2",
+    "helmet": "3.9.0",
+    "joi": "13.0.2",
+    "jsonwebtoken": "8.1.0",
+    "morgan": "1.9.0",
+    "pm2": "2.8.0",
+    "sequelize": "4.28.0",
+    "sqlite3": "3.1.13",
+    "winston": "2.4.0"
+  },
+  "devDependencies": {
+    "babel-cli": "6.26.0",
+    "babel-preset-env": "1.6.1",
+    "babel-register": "6.26.0",
+    "chai": "4.1.2",
+    "eslint": "4.13.1",
+    "eslint-config-standard": "11.0.0-beta.0",
+    "eslint-plugin-import": "2.8.0",
+    "eslint-plugin-node": "5.2.1",
+    "eslint-plugin-promise": "3.6.0",
+    "eslint-plugin-standard": "3.0.1",
+    "husky": "0.14.3",
+    "mocha": "4.0.1",
+    "nodemon": "1.12.5",
+    "rimraf": "2.6.2"
+  }
+}
