@@ -69,7 +69,7 @@ let CreateTrainer = (trainerInfo) => {
     trainerInfo.password = createHash('md5').update(trainerInfo.password).digest('hex')
     Trainer.create(trainerInfo)
       .then((trainer) => {
-        delete trainer.password
+        trainer.password = undefined
         resolve({
           data: trainer,
           status: 201
