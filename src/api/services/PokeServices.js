@@ -178,8 +178,7 @@ let buyPokemon = (payload) => {
         })
       })
       .catch(({ response })=> {
-        // console.log(response.data.errors)
-        let errorType = response.data.errors
+         let errorType = response.data.errors
         if (errorType.length) {
           errorType = response.data.errors[0].type
         }
