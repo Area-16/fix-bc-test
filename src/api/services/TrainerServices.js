@@ -20,9 +20,7 @@ let findOneTrainer = (doc_num) => {
         })
       })
       .catch((err) => {
-        let newError = errorChecker(err)
-        console.log(newError)
-        return reject(newError)
+        return reject(errorChecker(err))
       })
   })
 }
@@ -57,9 +55,7 @@ let Login = (authInfo) => {
 
       })
       .catch((err) => {
-        let newError = errorChecker(err)
-        console.log(newError)
-        return reject(newError)
+        return reject(errorChecker(err))
       })
   })
 }
@@ -76,10 +72,8 @@ let CreateTrainer = (trainerInfo) => {
         })
       })
       .catch((err) => {
-        console.log(err)
-        let newError = errorChecker(err)
-        console.log(newError)
-        return reject(newError)
+        
+        return reject(errorChecker(err))
       })
   })
 }

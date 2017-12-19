@@ -6,8 +6,6 @@ import { findOneTrainer } from './TrainerServices'
 import { createTransaction } from './TransactionServices'
 import { errorChecker } from '../../helpers/treater'
 
-let newError
-
 let findAllPokemons = (limit) => {
   return new Promise ((resolve, reject) => {
     Pokemon.findAll({
@@ -24,8 +22,7 @@ let findAllPokemons = (limit) => {
         })
       })
       .catch((err) => {
-        let newError = errorChecker(err)
-        return reject(newError)
+        return reject(errorChecker(err))
       })
   })
 }
@@ -46,8 +43,7 @@ let findOnePokemon = (name) => {
         })
       })
       .catch((err) => {
-        newError = errorChecker(err)
-        return reject(newError)
+        return reject(errorChecker(err))
       })
   })
 }
@@ -65,8 +61,7 @@ let CreatePokemon = (pokeInfo) => {
         })
       })
       .catch((err) => {
-        newError = errorChecker(err)
-        return reject(newError)
+        return reject(errorChecker(err))
       })
   })
 }
@@ -176,12 +171,10 @@ let buyPokemon = (payload) => {
               status: 201
             })
           }).catch((err)=> {
-            newError = errorChecker(err)
-            return reject(newError)               
+            return reject(errorChecker(err))               
           })
         }).catch((err) => {
-          newError = errorChecker(err)
-          return reject(newError) 
+          return reject(errorChecker(err)) 
         })
       })
       .catch(({ response })=> {
@@ -190,12 +183,10 @@ let buyPokemon = (payload) => {
         if (errorType.length) {
           errorType = response.data.errors[0].type
         }
-        newError = errorChecker(Error(errorType))
-        return reject(newError)
+        return reject(errorChecker(Error(errorType)))
       })
     }).catch((err) => {
-      newError = errorChecker(err)
-      return reject(newError)
+      return reject(errorChecker(err))
     }) 
   })
 }

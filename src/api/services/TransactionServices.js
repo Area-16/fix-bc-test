@@ -12,8 +12,7 @@ let createTransaction = (payload) => {
         })
       })
       .catch((err) => {
-        let newError = errorChecker(err)
-        return reject(newError)
+        return reject(errorChecker(err))
       })
   })
 }
@@ -36,8 +35,7 @@ let findTransactions = (trainer_id) => {
         })
       })
       .catch((err) => {
-        let newError = errorChecker(err)
-        return reject(newError)
+        return reject(errorChecker(err))
       })
   })
 }
