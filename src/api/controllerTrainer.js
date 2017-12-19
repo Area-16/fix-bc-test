@@ -1,7 +1,7 @@
 import { Router } from 'express'
 import Joi from 'joi'
 
-import { CreateTrainer, findAllTrainers, findOneTrainer, Login } from './services/TrainerServices'
+import { CreateTrainer, findOneTrainer, Login } from './services/TrainerServices'
 import Jwt from './../helpers/jwt'
 
 let router = Router()
@@ -39,16 +39,6 @@ router.get('/v1/trainer/:doc_num', (req, res, next) => {
     })
     .catch((err) => {
       res.status(err.status).json(err)
-    })
-})
-
-router.get('/v1/trainer', (req, res) => {
-  findAllTrainers()
-    .then((data) => {
-      return res.status(data.status).json(data)
-    })
-    .catch((err) => {
-      return res.status(err.status).json(err)
     })
 })
 

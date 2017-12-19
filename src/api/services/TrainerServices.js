@@ -3,28 +3,6 @@ import { createHash } from 'crypto'
 import { errorChecker } from '../../helpers/treater'
 import Jwt from '../../helpers/jwt'
 
-let findAllTrainers = () => {
-  return new Promise ((resolve, reject) => {
-    Trainer.findAll({
-      attributes: { 
-        exclude: ['password', 'createdAt', 'updatedAt'] 
-      },
-      order: [['name', 'ASC']]
-    })
-      .then((trainers) => {
-        resolve({
-          data: trainers || [],
-          status: 200
-        })
-      })
-      .catch((err) => {
-        let newError = errorChecker(err)
-        console.log(newError)
-        return reject(newError)
-      })
-  })
-}
-
 let findOneTrainer = (doc_num) => {
   return new Promise ((resolve, reject) => {
     Trainer.findOne({
@@ -106,4 +84,4 @@ let CreateTrainer = (trainerInfo) => {
   })
 }
 
-export { findAllTrainers, findOneTrainer, CreateTrainer, Login  }
+export { findOneTrainer, CreateTrainer, Login  }
