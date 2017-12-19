@@ -1,7 +1,7 @@
 # PAGARME-BAD-CODE
 [![Build Status](https://travis-ci.org/dougtq/pagarme.svg?branch=master)](https://travis-ci.org/dougtq/pagarme)
 
-Pagar.me technical test
+[Pagar.me](https://pagar.me/) technical test
 
 ## Getting Started
 
@@ -11,6 +11,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 * [Nodejs && NPM](https://nodejs.org/)
 * [Yarn](https://yarnpkg.com/)
+* [Docker](https://www.docker.com/get-docker)
 
 ### Installing
 
@@ -25,8 +26,24 @@ git clone https://github.com/dougtq/pagarme.git
 Install project dependencies:
 
 ```sh
-cd pagarme && yarn
+npm install
 ```
+
+Rename .env.example:
+
+```sh
+mv .env.example .env
+```
+
+## Running
+
+Starting the project running in docker
+```sh
+npm run docker
+```
+
+To validate if the service has gone up, just make an HTTP request by the GET method at `http://0.0.0.0:3000/healthcheck`
+
 
 ## Running the tests
 
