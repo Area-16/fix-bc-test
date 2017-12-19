@@ -8,7 +8,7 @@ let errorChecker = (errObj) => {
   let erro = errObj.message || errObj.name || errObj.err.name || errObj.type
 
   try {
-    winston.add(winston.transports.File, { filename: './logs/exceptions.log' })
+    winston.add(winston.transports.File, { filename: './exceptions.log' })
     winston.remove(winston.transports.Console)
     winston.log('error', errObj)
 
