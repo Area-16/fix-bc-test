@@ -31,7 +31,11 @@
     "build:watch": "npm run build -- --watch",
     "dev": "./node_modules/.bin/nodemon --exec ./node_modules/.bin/babel-node ./src/loader",
     "start": "node ./dist/loader",
-    "prod": "node_modules/.bin/pm2 start dist/loader.js --name pokemon_api"
+    "prod": "node_modules/.bin/pm2 start dist/loader.js --name pokemon_api",
+    "docker": "npm run docker:build && npm run docker:start",
+    "docker:build": "sudo docker build -t pagarme-pokemon-api:latest --file ./docker/Dockerfile .",
+    "docker:start": "sudo docker run --name pagarme-pokemon-api -p 3000:3000 -d --env-file .env pagarme-pokemon-api:latest",
+    "docker:stop": "sudo docker stop pagarme-pokemon-api && sudo docker rm -f $(sudo docker ps -f \"name=pagarme-pokemon-api\" -a -q)"
   },
   "license": "ISC",
   "engines": {
