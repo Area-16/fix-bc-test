@@ -12,10 +12,6 @@ let errorChecker = (errObj) => {
     winston.remove(winston.transports.Console)
     winston.log('error', errObj)
 
-    console.log('-----------------')
-    console.log(erro)
-    console.log('-----------------')
-
     if (erro) {
       if (erro.includes('SequelizeUniqueConstraintError')) {
         objResponse.err = 'Duplicated data error'

@@ -1,4 +1,4 @@
-import { expect, should } from 'chai'
+import { expect } from 'chai'
 
 import env from './../src/config/env'
 import cors from './../src/config/cors'
@@ -24,4 +24,5 @@ describe('Teste de utilitarios/helpers', () => {
       expect(cors).to.be.a('function')
     })
   })
+  
 })

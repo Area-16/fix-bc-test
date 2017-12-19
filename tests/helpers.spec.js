@@ -1,4 +1,4 @@
-import { expect, should } from 'chai'
+import { expect } from 'chai'
 
 import Jwt from '../src/helpers/jwt'
 import { general, errors, success } from '../src/helpers/loggify'
