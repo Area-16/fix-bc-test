@@ -19,6 +19,10 @@ app.use([success, general, errors])
 app.use(`${env.API_PREFIX}`, [pokemon, trainer, transaction])
 
 app.set('port', env.PORT || 3000)
+
+app.get('/healthcheck', (req, res) =>
+  res.status(200).json({ message: 'The API is working correctly!' }))
+
 app.listen(app.set('port'), () => {
   console.log(`Listening on http://localhost:${app.set('port')}`)
 })
