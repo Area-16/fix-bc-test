@@ -4,11 +4,12 @@ import Joi from 'joi'
 import { CreatePokemon, findAllPokemons, buyPokemon, findOnePokemon } from './services/PokeServices'
 import Jwt from './../helpers/jwt'
 
-let router = Router()
-let schema
+const router = Router()
+let schema = {}
+let authJwt
 
 router.get('/v1/pokemon', (req, res, next) => {
-  let authJwt = new Jwt()
+  authJwt = new Jwt()
 
   let tokenStatus = authJwt.verifyToken(req.headers.Authorization || req.headers.authorization)
   if (!tokenStatus) {
@@ -32,7 +33,7 @@ router.get('/v1/pokemon', (req, res, next) => {
 })
 
 router.get('/v1/pokemon/:name', (req, res, next) => {
-  let authJwt = new Jwt()
+  authJwt = new Jwt()
 
   let tokenStatus = authJwt.verifyToken(req.headers.authorization)
 
@@ -90,7 +91,7 @@ router.post(`/v1/pokemon`, (req, res, next) => {
 })
 
 router.post('/v1/payment', (req, res, next) => {
-  let authJwt = new Jwt()
+  authJwt = new Jwt()
 
   let tokenStatus = authJwt.verifyToken(req.headers.authorization)
 
