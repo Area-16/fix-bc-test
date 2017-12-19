@@ -1,6 +1,7 @@
 import { expect, should } from 'chai'
 
 import Jwt from '../src/helpers/jwt'
+import { general, errors, success } from '../src/helpers/loggify'
 import { errorChecker } from '../src/helpers/treater'
 
 describe('Teste de utilitarios/helpers', () => {
@@ -26,32 +27,32 @@ describe('Teste de utilitarios/helpers', () => {
     })
   })
 
-  // describe('Testes Loggers', () => {
+  describe('Testes Loggers', () => {
 
-  //   it('Logger general should exist', () => {
-  //     expect(general).to.exist
-  //   })
+    it('Logger general should exist', () => {
+      expect(general).to.exist
+    })
 
-  //   it('Logger general should be a function', () => {
-  //     expect(general).to.be.a('function')
-  //   })
+    it('Logger general should be a function', () => {
+      expect(general).to.be.a('function')
+    })
     
-  //   it('Logger errors should exist', () => {
-  //     expect(errors).to.exist
-  //   })
+    it('Logger errors should exist', () => {
+      expect(errors).to.exist
+    })
     
-  //   it('Logger errors should be a function', () => {
-  //     expect(errors).to.be.a('function')
-  //   })
+    it('Logger errors should be a function', () => {
+      expect(errors).to.be.a('function')
+    })
 
-  //   it('Logger general should exist', () => {
-  //     expect(success).to.exist    
-  //   })
+    it('Logger general should exist', () => {
+      expect(success).to.exist    
+    })
 
-  //   it('Logger general should be a function', () => {
-  //     expect(success).to.be.a('function')
-  //   })
-  // })
+    it('Logger general should be a function', () => {
+      expect(success).to.be.a('function')
+    })
+  })
 
   describe('Testes Error Treater', () => {
     let errDescription
