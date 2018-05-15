@@ -39,7 +39,7 @@ const Transaction = conn.define('transaction', {
 })
 
 Transaction.sync({ force: false })
-.then(() => {})
-.catch(() => console.log('Transaction model sync error'))
+  .then(() => {})
+  .catch(() => console.log('Transaction model sync error'))
 
 export default Transaction
