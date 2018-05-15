@@ -10,7 +10,6 @@ const getRouters = (modulos) =>
     return require(`./controllers/${modulo}`).default
   })
 
-
 function bootstrap () {
   const modules = getModules()
   return getRouters(modules || [''])
