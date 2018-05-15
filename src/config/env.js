@@ -1,8 +1,12 @@
 import envDeploy from 'env-deploy'
 
-let getEnv = () => {
-  envDeploy()
+const getEnv = () => {
   return Object.assign({}, process.env)
 }
 
-export default getEnv()
+const setEnv = () => {
+  envDeploy()
+}
+
+export default setEnv
+export { getEnv }

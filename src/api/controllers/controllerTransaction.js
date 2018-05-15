@@ -1,8 +1,8 @@
 import { Router } from 'express'
 import Joi from 'joi'
 
-import { findTransactions } from './services/TransactionServices'
-import Jwt from './../helpers/jwt'
+import { findTransactions } from '../services/TransactionServices'
+import Jwt from '../../helpers/jwt'
 
 let router = Router()
 

@@ -1,8 +1,8 @@
 import { Router } from 'express'
 import Joi from 'joi'
 
-import { CreateTrainer, findOneTrainer, Login } from './services/TrainerServices'
-import Jwt from './../helpers/jwt'
+import { CreateTrainer, findOneTrainer, Login } from '../services/TrainerServices'
+import Jwt from '../../helpers/jwt'
 
 let router = Router()
 let schema

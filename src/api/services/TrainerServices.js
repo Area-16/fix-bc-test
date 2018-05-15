@@ -1,4 +1,4 @@
-import Trainer from '../../db/models/trainer'
+import Trainer from '../../models/trainer'
 import { createHash } from 'crypto'
 import { errorChecker } from '../../helpers/treater'
 import Jwt from '../../helpers/jwt'
@@ -9,9 +9,9 @@ let findOneTrainer = (doc_num) => {
       where: {
         doc_num
       },
-      attributes: { 
-        exclude: ['password', 'createdAt', 'updatedAt'] 
-      }  
+      attributes: {
+        exclude: ['password', 'createdAt', 'updatedAt']
+      }
     })
       .then((trainer) => {
         resolve({
@@ -33,9 +33,9 @@ let Login = (authInfo) => {
         email: authInfo.email,
         password: hashedPassword
       },
-      attributes: { 
-        exclude: ['password', 'createdAt', 'updatedAt'] 
-      }  
+      attributes: {
+        exclude: ['password', 'createdAt', 'updatedAt']
+      }
     })
       .then((trainer) => {
         if (trainer) {
@@ -72,7 +72,7 @@ let CreateTrainer = (trainerInfo) => {
         })
       })
       .catch((err) => {
-        
+
         return reject(errorChecker(err))
       })
   })

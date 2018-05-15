@@ -1,6 +1,6 @@
 import Axios from 'axios'
 
-import Pokemon from '../../db/models/pokemon'
+import Pokemon from '../../models/pokemon'
 import env from '../../config/env'
 import { findOneTrainer } from './TrainerServices'
 import { createTransaction } from './TransactionServices'
@@ -32,8 +32,8 @@ let findOnePokemon = (name) => {
     name = name.toUpperCase()
     Pokemon.findOne({
      where: { name: name },
-     attributes: { 
-      exclude: ['createdAt', 'updatedAt'] 
+     attributes: {
+      exclude: ['createdAt', 'updatedAt']
     }
     })
       .then((pokemon) => {
@@ -71,7 +71,7 @@ let buyPokemon = (payload) => {
   let { trainer, transaction, pokemon } = payload
 
   return new Promise ((resolve, reject) => {
-    Promise.all([ 
+    Promise.all([
       findOnePokemon(pokemon.name)
       .then(data => data.data),
       findOneTrainer(payload.trainer.doc_num)
@@ -85,7 +85,7 @@ let buyPokemon = (payload) => {
           status: 400
         })
       }
-      
+
       if (selectedPokemon === {}) {
         return reject({
           err: 'The necessary pokemon data was not found',
@@ -171,10 +171,10 @@ let buyPokemon = (payload) => {
               status: 201
             })
           }).catch((err)=> {
-            return reject(errorChecker(err))               
+            return reject(errorChecker(err))
           })
         }).catch((err) => {
-          return reject(errorChecker(err)) 
+          return reject(errorChecker(err))
         })
       })
       .catch(({ response })=> {
@@ -186,7 +186,7 @@ let buyPokemon = (payload) => {
       })
     }).catch((err) => {
       return reject(errorChecker(err))
-    }) 
+    })
   })
 }
 

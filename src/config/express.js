@@ -2,29 +2,28 @@ import express from 'express'
 import { json, urlencoded } from 'body-parser'
 import helmet from 'helmet'
 
+import './env'
 import '../db/index'
 import cors from './cors'
-import env from './env'
 import { success, general, errors } from '../helpers/loggify'
-import pokemon from '../api/controllerPokemon'
-import trainer from '../api/controllerTrainer'
-import transaction from '../api/controllerTransaction'
+import routes from '../api/route-loader'
 
 const app = express()
-app.use(helmet())
+
+app.use(helmet({ hidePoweredBy: true }))
 app.use(json())
-app.use(urlencoded({ extended: true }))
+app.use(urlencoded({ extended: false }))
 app.use(cors)
 app.use([success, general, errors])
-app.use(`${env.API_PREFIX}`, [pokemon, trainer, transaction])
+app.use(`${process.env.API_PREFIX}`, [...routes()])
 
-app.set('port', env.PORT || 3000)
+app.set('port', process.env.PORT || 3000)
 
-app.get('/healthcheck', (req, res) =>
-  res.status(200).json({ message: 'The API is working correctly!' }))
+app.use('/healthcheck', (req, res) =>
+  res.send({ data: { message: 'The API is working correctly!' }, status: 200 }))
 
-app.listen(app.set('port'), () => {
-  console.log(`Listening on http://localhost:${app.set('port')}`)
+app.listen(app.get('port'), () => {
+  console.info(`Listening on port: ${app.get('port')}`)
 })
 
 export default app

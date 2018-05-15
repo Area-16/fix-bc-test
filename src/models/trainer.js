@@ -1,7 +1,8 @@
-import sequelize from '../index'
 import Sequelize from 'sequelize'
 
-let Trainers = sequelize.define('trainer', {
+import conn from '../db'
+
+const Trainers = conn.define('trainer', {
   id: {
     type: Sequelize.INTEGER,
     primaryKey: true,
@@ -14,7 +15,7 @@ let Trainers = sequelize.define('trainer', {
   country: {
     type: Sequelize.STRING,
     allowNull: true,
-    defaultValue: 'br'
+    defaultValue: 'BR'
   },
   state: {
     type: Sequelize.STRING,

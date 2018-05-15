@@ -1,0 +1,5 @@
+{
+  "watch": ["src"],
+  "ext": "js",
+  "exec": "./node_modules/.bin/babel-node ./src/loader.js"
+}

@@ -1,4 +1,4 @@
-import Transaction from '../../db/models/transaction'
+import Transaction from '../../models/transaction'
 import { errorChecker } from '../../helpers/treater'
 
 let createTransaction = (payload) => {
@@ -23,7 +23,7 @@ let findTransactions = (trainer_id) => {
       .findOne({
         where: {
           trainer_id
-        }, 
+        },
         attributes: {
           exclude: ['createdAt', 'updatedAt']
         }

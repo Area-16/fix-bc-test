@@ -1,1 +1,1 @@
-import app from './config/express'
+import './config/express'

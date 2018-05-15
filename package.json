@@ -6,7 +6,7 @@
   "author": "Douglas E. Alves",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dougtq/pagarme.git"
+    "url": "git+https://github.com/dougtq/pokemon_api.git"
   },
   "keywords": [
     "js",
@@ -14,11 +14,10 @@
     "sqlite3",
     "sequelize",
     "integration",
-    "pagar.me",
     "test"
   ],
   "bugs": {
-    "url": "https://github.com/dougtq/pagarme/issues"
+    "url": "https://github.com/dougtq/pokemon_api/issues"
   },
   "scripts": {
     "test": "./node_modules/.bin/mocha tests/**/*.spec.js --reporter=spec --require babel-register --bail",
@@ -26,20 +25,16 @@
     "lint": "./node_modules/.bin/eslint src/**/*.js",
     "lint:fix": "npm run lint -- --fix",
     "clean": "./node_modules/.bin/rimraf dist",
-    "precommit": "npm run lint",
-    "build": "npm run lint && npm run clean && ./node_modules/.bin/babel --out-dir dist src",
+    "precommit": "npm run lint:fix",
+    "build": "npm run lint:fix && npm run clean && ./node_modules/.bin/babel --out-dir dist src",
     "build:watch": "npm run build -- --watch",
-    "dev": "./node_modules/.bin/nodemon --exec ./node_modules/.bin/babel-node ./src/loader",
+    "dev": "./node_modules/.bin/nodemon",
     "start": "node ./dist/loader",
-    "prod": "node_modules/.bin/pm2 start dist/loader.js --name pokemon_api",
-    "docker": "npm run docker:build && npm run docker:start",
-    "docker:build": "docker build -t pagarme-pokemon-api:latest --file ./docker/Dockerfile .",
-    "docker:start": "docker run --name pagarme-pokemon-api -p 3000:3000 -d --env-file .env pagarme-pokemon-api:latest",
-    "docker:stop": "docker stop pagarme-pokemon-api && docker rm -f $(docker ps -f \"name=pagarme-pokemon-api\" -a -q)"
+    "prod": "node_modules/.bin/pm2 start dist/loader.js --name pokemon_api"
   },
   "license": "ISC",
   "engines": {
-    "node": ">= 6.12.0"
+    "node": ">= 8.0.0"
   },
   "dependencies": {
     "axios": "0.17.1",

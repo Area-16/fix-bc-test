@@ -1,7 +1,8 @@
-import sequelize from '../index'
 import Sequelize from 'sequelize'
 
-let Transaction = sequelize.define('transaction', {
+import conn from '../db'
+
+const Transaction = conn.define('transaction', {
   id: {
     type: Sequelize.INTEGER,
     primaryKey: true,
@@ -9,7 +10,7 @@ let Transaction = sequelize.define('transaction', {
   },
   tid: {
     type: Sequelize.INTEGER,
-    allowNull: false, 
+    allowNull: false,
     unique: true
   },
   trainer_id: {

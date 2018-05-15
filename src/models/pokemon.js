@@ -1,7 +1,8 @@
-import sequelize from '../index'
 import Sequelize from 'sequelize'
 
-let Pokemon = sequelize.define('pokemon', {
+import conn from '../db'
+
+const Pokemon = conn.define('pokemon', {
   id: {
     type: Sequelize.INTEGER,
     primaryKey: true,
@@ -29,4 +30,5 @@ let Pokemon = sequelize.define('pokemon', {
 Pokemon.sync({ force: false })
   .then(() => {})
   .catch(() => console.log('Pokemon model sync error'))
+
 export default Pokemon

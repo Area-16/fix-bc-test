@@ -1,8 +1,8 @@
 import { Router } from 'express'
 import Joi from 'joi'
 
-import { CreatePokemon, findAllPokemons, buyPokemon, findOnePokemon } from './services/PokeServices'
-import Jwt from './../helpers/jwt'
+import { CreatePokemon, findAllPokemons, buyPokemon, findOnePokemon } from '../services/PokeServices'
+import Jwt from '../../helpers/jwt'
 
 const router = Router()
 let schema = {}
