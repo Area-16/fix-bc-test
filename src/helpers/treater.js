@@ -31,8 +31,8 @@ const errorChecker = (errObj) => {
         objResponse.status = 400
       } else
       if (erro.includes('session_terminated')) {
-          objResponse.message = `Your session will be terminated`,
-          objResponse.status = 400
+        objResponse.message = `Your session will be terminated`,
+        objResponse.status = 400
       }
     }
 
